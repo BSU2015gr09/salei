@@ -23,7 +23,7 @@ int main()
         {
             if((a==0)&&(c==0))
             {
-                cout<<"x1 = "<<x1<<"i";
+                cout<<"x1 = "<<x1;
             }
             else
             {
