@@ -1,4 +1,4 @@
-//отношение чисел Фибоначчи
+п»ї//РѕС‚РЅРѕС€РµРЅРёРµ С‡РёСЃРµР» Р¤РёР±РѕРЅР°С‡С‡Рё
 #include <iostream>
 #include <clocale>
 #include <iomanip>
