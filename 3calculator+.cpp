@@ -12,7 +12,7 @@ int main()
 	while (i == 1)
 	{
 		i++;
-		cout << "enter first value.. " << endl;
+		cout << "enter first value.. " << endl;// а кирилица где?????
 		cin >> res;
 		cout << "select option (+, -, *, /)  for exit press (e)   for the cleaning press (c)   " << endl;
 		cin >> operation;
@@ -47,7 +47,7 @@ int main()
 				switch (val)
 				{
 				case 0:
-					cout<<"Division by zero is meaningless. "<<endl;
+					cout<<"Division by zero is meaningless. "<<endl;// а кирилица где?????
 					break;
 				default:
 					res/=val;
@@ -62,7 +62,7 @@ int main()
 				i = 3;
 				break;
             default:
-                cout<<"Invalid operation, try again.."<<endl;
+                cout<<"Invalid operation, try again.."<<endl;// а кирилица где?????
 			}
 			switch (i)
 			{
