@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <clocale>
 #include <iomanip>
 
@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     int a=4096,c=150889,m=714025,i=0;
-    int arr[20];
+    int arr[20]; // зачем массив?????
     cout<<"Enter a value..";
     cin>>arr[0];
     cout<<"1 := "<<arr[0]<<endl;

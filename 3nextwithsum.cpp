@@ -18,7 +18,7 @@ int main()
     orignext=orign;
     do
     {
-        orignext++;
+        orignext++;// рабочая но плохая идея.... Полный перебор - быдлокод )))
         next=orignext;
         sn=0;
         while (next!=0)
