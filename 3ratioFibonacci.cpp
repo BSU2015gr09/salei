@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     unsigned int i=1;
-    float arr[40],prev=0,next=0;// зачем массив??????
+    float arr[40],prev=0,next=0;
     arr[0]=0;
     arr[1]=1;
     cout<<" ________________________________"<<endl;

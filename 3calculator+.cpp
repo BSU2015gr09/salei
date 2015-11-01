@@ -1,18 +1,19 @@
-﻿/*"Ќормальный" калькул¤тор. ќбработка ситуации делени¤ на 0. –езультат вычислений остаетс¤ как текущее значение.
- ≈сли вместо операции ввести символ ТcТ, то калькул¤тор сбрасываетс¤ в начало, при вводе символа ТeТ вместо
-  операции калькул¤тор завершает работу (exit)
+﻿/*"Нормальный" калькул¤тор. Обработка ситуации делени¤ на 0. Результат вычислений остаетс¤ как текущее значение.
+ Если вместо операции ввести символ (с), то калькул¤тор сбрасывается в начало, при вводе символа (е) вместо
+  операции калькулятор завершает работу (exit)
 */
 #include <iostream>
 using namespace std;
 int main()
 {
+    setlocale(LC_ALL, "Russian")
 	int val=0,i=1;
 	float res=0;
 	char operation, c, e;
 	while (i == 1)
 	{
 		i++;
-		cout << "enter first value.. " << endl;// а кирилица где?????
+		cout << "Введите первое число.. " << endl;
 		cin >> res;
 		cout << "select option (+, -, *, /)  for exit press (e)   for the cleaning press (c)   " << endl;
 		cin >> operation;
@@ -27,31 +28,31 @@ int main()
 		}
 		while (i == 2)
 		{
-			cout<<"Enter second value.. "<<endl;
+			cout<<"Введите второе число.. "<<endl;
 			cin>>val;
 			switch (operation)
 			{
 			case '+':
 				res+=val;
-				cout<<"Result = "<<res<<endl;
+				cout<<"Результат = "<<res<<endl;
 				break;
 			case '-':
 				res-=val;
-				cout<<"Result = "<<res<<endl;
+				cout<<"Результат= "<<res<<endl;
 				break;
 			case '*':
 				res*=val;
-				cout<<"Result = "<<res<<endl;
+				cout<<"Результат = "<<res<<endl;
 				break;
 			case '/':
 				switch (val)
 				{
 				case 0:
-					cout<<"Division by zero is meaningless. "<<endl;// а кирилица где?????
+					cout<<"Деление на ноль невозможно. "<<endl;
 					break;
 				default:
 					res/=val;
-					cout<<"Result = "<<res<<endl;
+					cout<<"Результат = "<<res<<endl;
 					break;
 				}
 				break;
@@ -62,12 +63,12 @@ int main()
 				i = 3;
 				break;
             default:
-                cout<<"Invalid operation, try again.."<<endl;// а кирилица где?????
+                cout<<"Некорректная операция.."<<endl;
 			}
 			switch (i)
 			{
 			case 2:
-				cout<<"select option (+, -, *, /)  for exit press (e)   for the cleaning press (c)"<<endl;
+				cout<<"Выберите операцию (+, -, *, /)  Для выхода нажмите (e)   Для очистки нажмите (c)"<<endl;
 				cin>>operation;
 				switch (operation)
 				{
