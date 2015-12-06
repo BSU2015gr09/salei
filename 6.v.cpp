@@ -8,8 +8,7 @@ void enter_array (char a[], int size){
 	}
 }
 
-void print_array(char a[], int size)
-{
+void print_array(char a[], int size){
 	cout<<"Ваш массив"<<endl;
 	for (int i=0;i<size;i++){
 		cout<<a[i]<<"  ";
@@ -19,7 +18,8 @@ void print_array(char a[], int size)
 
 void the_most_frequently_occurring(char a[],int size){
 	int z=0,k=0,b=0,n=0;
-	char p=a[z],tmf=a[z];
+	char p=a[z];
+	char tmf=a[z];
 	while (k<size){
 		p=a[z];
 		for (int i=k;i<size;i++){
