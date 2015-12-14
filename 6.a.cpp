@@ -3,14 +3,14 @@
 using namespace std;
 const int maxsize=100;
 
-void PUSH (int (&a)[maxsize],int &top,int element=0){
+void PUSH (int (&a)[maxsize],int &top,int element=0){//зачем ссылка на массив а?????
     top++;
     if (top<=maxsize){
         cin>>element;
         a[top]=element;
     }
     else{
-        cout<< "Стек заполнен"<<endl;
+        cout<< "Стек заполнен"<<endl;//логичнее эту проверку в самом начале делать
         top--;
     }    
 }
@@ -20,10 +20,10 @@ void view_top (int a[maxsize],int top){
 }
 
 void view_quantity (int a[maxsize],int top){
-    cout<<"Количество элементов в стеке:  "<<top+1<<"/100"<<endl;
+    cout<<"Количество элементов в стеке:  "<<top+1<<"/100"<<endl;//лучшн не 100, а maxsize
 }
 
-void POP (int (&a)[maxsize],int &top,int &element){
+void POP (int (&a)[maxsize],int &top,int &element){ //зачем ссылка на массив а?????
     top--;
     if (top>=-1){
         element=a[top+1];
@@ -34,7 +34,7 @@ void POP (int (&a)[maxsize],int &top,int &element){
         top++;
     }
 }
-
+// что за странная ф-ция, которая просто печатает то, чо ей послали??????
 void esc_element(int element){
     cout<<"Число, которое мы достали из стека:  "<<element<<endl;
 }
