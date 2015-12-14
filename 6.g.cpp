@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+using namespace std; 
 
 void enter_array (char a[], int size){
 	cout<<"Введите 20 символов"<<endl;
