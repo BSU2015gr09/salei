@@ -3,7 +3,7 @@
 using namespace std;
 
 void enter_array(int a[],int size){
-	cout << "Введите десять целых чисел"<< endl;
+	cout << "Введите десять целых чисел"<< endl;//лучше говорить size чисел
 	for (int i = 0; i < size; i++){
 		cin>>a[i];
 	}
@@ -21,9 +21,9 @@ void delete_n(int a[],int size,int &n){
 	cout << "Введите номер элемента который хотите удалить"<<endl;
     while (!k){
         cin >> i;
-        if (i>=size-n || i<0) cout<<"Введите число от 1 до 10"<<endl;
+        if (i>=size-n || i<0) cout<<"Введите число от 1 до 10"<<endl; //лучше говорить до size 
         else{
-            for (i-1;i<size;i++){
+            for (i-1;i<size;i++){// что значит i-1. Я не понимаю....
                 a[i-1]=a[i];
             }
             n++;
