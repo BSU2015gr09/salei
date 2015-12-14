@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 void enter_array (char a[], int size){
