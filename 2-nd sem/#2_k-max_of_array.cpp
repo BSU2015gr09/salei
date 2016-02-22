@@ -22,11 +22,27 @@ void data_input(int &N,int &k){
 }
 
 void generate_array(int *arr,int N){
-	for (int i=0; i < N; i++){
+	for (int i=0; i < N; i++)
         *(arr+i) = rand()%100;
-        cout<< *(arr+i) << "  ";
-	}
     cout<< endl;
+}
+
+void enter_array (int *arr,int N){
+    for(int i=0;i<N;i++)
+        cin>>*(arr+i);
+    cout<<endl;
+}
+
+void init_array(int *arr,int N){
+    int c=0;
+    cout<<"Выберите способ инициализации массива:"<<endl<<"  1. Случайными числами "<<endl<<"  2. С клавиатуры "<<endl;
+    cin>>c;
+    switch(c){
+        case 1: generate_array(arr,N);
+            break;
+        default: enter_array(arr,N);
+            break;
+    }
 }
 
 void quickSort(int *arr, int left, int right) {
@@ -76,7 +92,8 @@ int main() {
     srand(time(0));
     data_input(N,k);
     int* const arr=new(int[N]);
-    generate_array(arr,N);
+    init_array(arr,N);
+    print_array(arr,N);
     quickSort(arr,0,N-1);
     print_array(arr,N);
     found_k_max(arr,N,k);
