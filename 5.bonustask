@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+const int size=10;
+
+void generate_array (int (&arr)[size][size]){
+    srand(time(0));
+    for (int i=0;i<size;i++){
+        for (int j=0;j<size;j++){
+            arr[i][j]=rand%100;
+        }
+    }
+    for (int i=0; i<size;i++){
+        for (int j = 0; j < size; j++)
+            cout<<arr[i][j]<<"\t";
+        cout<<endl;
+    }
+}
+int sum_diagonal(int arr[size][size],&sumd){
+    for(int i=0;i<size;i++){
+        for(int j=0;j<size;j++){
+            if(i==j)sumd=arr[i][j];
+        }
+    }
+    return snmd;
+}
+
+int sum_under_diagonal(int arr[size][size],&sumud){
+    for(int i=0;i<size;i++){
+        for(int j=0;j<size;j++){
+            if(i>j)sumud=arr[i][j];
+        }
+    }
+    return snmud;
+}
+
+int main()
+{
+    int arr[size][size],sumd=0,sumud=0;
+    return 0;
+}

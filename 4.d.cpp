@@ -147,7 +147,7 @@ int main()
     line_to_line(arr);
     cout <<endl<<"Справа-налево"<<endl;
     from_right_to_left(arr);
-    cout <<endl<<"«Зейкой"<<endl;
+    cout <<endl<<"«Змейкой"<<endl;
     snake (arr);
     cout <<endl<<"Плуговым письмом"<<endl;
     plow (arr);
