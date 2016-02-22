@@ -66,7 +66,8 @@ void found_k_max (int *arr,int N,int k){
         if(*(arr+N-i)!=*(arr+N-i-1)&&t>0)t--;
         if(t)f++;
     }
-    cout<<endl<<k<<"-й максимум равен: "<<*(arr+N-f);
+    if(f<=N)cout<<endl<<k<<"-й максимум равен: "<<*(arr+N-f);
+    else cout<<endl<<k<<"-ого максимума не существует";
 }
 
 int main() {
