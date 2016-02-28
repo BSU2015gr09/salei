@@ -53,12 +53,12 @@ void merge(int *arr, int left, int mid, int right){
 
 	// Объединяем два массива в b[] пока не закончится первый
 	while((l<=mid)&&(lsec<=right)){
-		if(arr[l]<=arr[lsec]){
-			b[i]=arr[l];
+		if(*(arr+l)<=*(arr+lsec)){
+			*(b+i)=*(arr+l);
 			l++;
 		}
 		else{
-			b[i]=arr[lsec];
+			*(b+i)=*(arr+lsec);
 			lsec++;
 		}
 		i++;
@@ -66,19 +66,19 @@ void merge(int *arr, int left, int mid, int right){
 	// Заполнение массива недостающими значениями
 	if(l>mid){
 		for(int k=lsec;k<=right;k++){
-			b[i]=arr[k];
+			*(b+i)=*(arr+k);
 			i++;
 		}
 	}
 	else{
 		for(int k=l;k<=mid;k++){
-			b[i]=arr[k];
+			*(b+i)=*(arr+k);
 			i++;
 		}
 	}
 	// Запись в оригинальный массив
 	for(int k=0;k<=right-left;k++) {
-		arr[k+left]=b[k];
+		*(arr+k+left)=*(b+k);
 	}
 	delete []b;
 }
@@ -114,9 +114,9 @@ void init_added_numbers (int *xrr ,int x){
 
 void added_numbers_into_the_array(int *arr,int N,int num,int &ox){
     for(int i=N-1-ox;i>0;i--){
-        if(arr[i]>num)arr[i+1]=arr[i];
+        if(*(arr+i)>num)*(arr+i+1)=*(arr+i);
         else {
-            arr[i+1]=num;
+            *(arr+i+1)=num;
             ox--;
             break;
         }
