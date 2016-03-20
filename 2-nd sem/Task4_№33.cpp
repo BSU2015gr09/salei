@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const int size=400;
+const int size=800;
 
 char* init_string (char * str){
     int c=0;
@@ -18,7 +18,6 @@ char* init_string (char * str){
                 cout<<str<<endl;
             break;
         default: cin.getline(str,size);
-
             break;
     }
     return str;
@@ -29,22 +28,25 @@ void copy_string (char *str, char *tmpstr){
 }
 
 void symbols_recheck (char *word,char *tmpword){
-
     char symbol[size/2];
     strcpy(tmpword,word);
+    for(int i=0;i<strlen(word);i++){
+        if(*(tmpword+i)>='A' && *(tmpword+i)<='Z') {*(tmpword+i)+=32;}
+        if(*(tmpword+i)>='А' && *(tmpword+i)<='Я') {*(tmpword+i)+=32;}
+    }
     for(int i=0;i<strlen(word);i++){
         strncpy(symbol,tmpword,1);
         strcpy(tmpword,tmpword+1);
         int rep=strcspn(tmpword,symbol);
         if(rep!=strlen(tmpword))return;
     }
+
     cout<<word<<endl;
 }
 
 void word_selection (char *tmpstr,char *word,char *separators,char *tmpword){
     int st=1;
     while (st){
-
         int begin = strspn(tmpstr,separators);
         strcpy(tmpstr,tmpstr+begin);
         int end = strcspn(tmpstr,separators);
@@ -59,8 +61,7 @@ void word_selection (char *tmpstr,char *word,char *separators,char *tmpword){
 int main(int argc, char* argv[])
 {
     SetConsoleCP(1251);        // для возможности ввода строки
-    SetConsoleOutputCP(1251);  // на русском 
-    setlocale(LC_ALL, "Russian");
+    SetConsoleOutputCP(1251);  // на русском
     char * const str=new(char[size]);
     char * const tmpstr=new(char[size]);
     char * const word=new(char[size/2]);
