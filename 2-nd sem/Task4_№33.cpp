@@ -4,6 +4,7 @@
 #include <cstring>
 #include <clocale>
 #include <Windows.h>
+#include <fstream>
 
 using namespace std;
 
@@ -11,14 +12,18 @@ const int size=800;
 
 char* init_string (char * str){
     int c=0;
-    cout<<"Выберите способ ввода строки:"<<endl<<"  1. Автоматически "<<endl<<"  2. Вручную "<<endl;
+    cout<<"Выберите способ ввода строки:"<<endl<<"  1. Автоматически "<<endl<<"  2. C Клавиатуры" <<endl<<"  3. Из файла "<<endl;
     cin>>c;
+    cout<<endl;
     switch(c){
         case 1: strcpy(str,"Это небольшой текст, который содержит занаки препинания. Ура! Только чему радоваться? Ну хотя бы тому, что все работает правильно; ");
                 cout<<str<<endl;
             break;
-        default: cin.getline(str,size);
+        case 2: cin.getline(str,size);
             break;
+        default: ifstream fin ("input.txt");
+                fin.getline(str,size);
+        break;
     }
     return str;
 }
@@ -27,7 +32,7 @@ void copy_string (char *str, char *tmpstr){
     strcpy(tmpstr,str);
 }
 
-void symbols_recheck (char *word,char *tmpword){
+void symbols_recheck (char *word,char *tmpword,char *outputstr){
     char symbol[size/2];
     strcpy(tmpword,word);
     for(int i=0;i<strlen(word);i++){
@@ -40,11 +45,12 @@ void symbols_recheck (char *word,char *tmpword){
         int rep=strcspn(tmpword,symbol);
         if(rep!=strlen(tmpword))return;
     }
-
+    strcat(outputstr,word);
+    strcat(outputstr,"  ");
     cout<<word<<endl;
 }
 
-void word_selection (char *tmpstr,char *word,char *separators,char *tmpword){
+void word_selection (char *tmpstr,char *word,char *separators,char *tmpword,char *outputstr){
     int st=1;
     while (st){
         int begin = strspn(tmpstr,separators);
@@ -52,7 +58,7 @@ void word_selection (char *tmpstr,char *word,char *separators,char *tmpword){
         int end = strcspn(tmpstr,separators);
         strcpy(word,tmpstr);
         strcpy(word+end,"\0");
-        symbols_recheck(word,tmpword);
+        symbols_recheck(word,tmpword,outputstr);
         strcpy(tmpstr,tmpstr+end);
         st=strlen(tmpstr);
     }
@@ -63,6 +69,8 @@ int main(int argc, char* argv[])
     SetConsoleCP(1251);        // для возможности ввода строки
     SetConsoleOutputCP(1251);  // на русском
     char * const str=new(char[size]);
+    char * const outputstr=new(char[size]);
+    strcpy(outputstr,"");
     char * const tmpstr=new(char[size]);
     char * const word=new(char[size/2]);
     char * const tmpword=new(char[size/2]);
@@ -71,6 +79,8 @@ int main(int argc, char* argv[])
     strcpy(separators," ,.!?:;-+()*?%№=_&^$#/|\[]{}");
     init_string (str);
     copy_string(str,tmpstr);
-    word_selection (tmpstr,word,separators,tmpword);
+    word_selection (tmpstr,word,separators,tmpword,outputstr);
+    ofstream fout ("output.txt");
+    fout<<outputstr;
     return 0;
 }
